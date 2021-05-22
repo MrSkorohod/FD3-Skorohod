@@ -1,0 +1,47 @@
+#app {
+    margin: 0 auto;
+    border: 3px solid #31ffe4;
+}
+.mainTable{
+    background: #8affb7;
+}
+.header{
+    text-align: center;
+    font: italic small-caps bold 36px/2 cursive;
+}
+.productTable{
+    display:flex;
+    justify-content: space-around;
+}
+.headProduct{
+    text-align: center;
+    color: #730f6b;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 40px;
+    letter-spacing: -2px;
+    word-spacing: -4px;
+    font-weight: 400;
+    text-decoration: underline solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: uppercase;
+}
+.prise, .inStock{
+    text-align: center;
+    font-family: Impact, cursive, sans-serif;
+    font-size: 30px;
+    color: #878787;
+    letter-spacing: 4px;
+    word-spacing: 0px;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    display: inline-block;
+    padding: 21px 21px;
+    border-radius: 20px;
+    text-shadow: 7px 5px 14px #d6d3d3;
+}
+.image{
+    display: block;
+    text-align: center;
+}
