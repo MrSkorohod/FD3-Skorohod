@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="searchParam"></div>
+
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="script.js"></script>
+
+<script>
+    // let searchItems = [
+    //     {text:"врипрвтуоаа", code:1},
+    //     {text:"фауеенмщдывцуа", code:2},
+    //     {text:"пугитсукргаицо", code:3},
+    //     {text:"ауапгцлсоиукми", code:4},
+    //     {text:"хзерспыоса", code:5},
+    //     {text:"ялатсрукп", code:6},
+    //     {text:"бпзвбфыырфсывс", code:7},
+    //     {text:"шатфспысшывм", code:8}
+    // ];
+    let searchItems = [
+        "врипрвтуоаа",
+        "фауеенмщдывцуа",
+        "пугитсукргаицо",
+        "ауапгцлсоиукми",
+        "хзерспыоса",
+        "ялатсрукп",
+        "бпзвбфыырфсывс",
+        "шатфспысшывм",
+    ];
+    ReactDOM.render(
+        React.createElement(search, {searchItem: searchItems}),
+        document.getElementById("searchParam")
+    );
+</script>
+</body>
+</html>

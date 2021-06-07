@@ -1,9 +1,9 @@
 var tableShop = React.createClass({
     displayName: "tableShop",
 
-    getDefaultProps: function() {
-        return {name: "Undefined shop"}
-    },
+    // getDefaultProps: function() {
+    //     return {name: "Undefined shop", products: []}
+    // },
 
     render: function() {
 
