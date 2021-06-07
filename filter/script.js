@@ -7,24 +7,36 @@ let search = React.createClass({
     },
 
     getInitialState:function(){
-        return {arrayItems: this.props.searchItem, checked: false, str:""}
+        return {
+            arrayItems: this.props.searchItem,
+            checked: false,
+            str:""
+        }
     },
     sortList: function(event){
-        let newList = [...this.props.searchItem];
-        event.target.checked
-            ?this.setState({arrayItems: newList.sort(), checked: true}):
-            this.setState({arrayItems: this.props.searchItem, checked:false});
+        this.setState({checked: event.target.checked}, this.processList);
+
     },
     findLetter: function(event) {
-        let newList = [...this.props.searchItem];
-        this.setState({arrayItems: newList.filter(word => word.includes(event.target.value)), str: event.target.value})
+        this.setState({str: event.target.value}, this.processList);
+
+    },
+    processList: function(){
+        let result = [...this.props.searchItem];
+        if(this.state.str){
+            result = result.filter(word => word.indexOf(this.state.str) !== -1);
+        }
+        if(this.state.checked){
+            result.sort();
+        }
+        this.setState({arrayItems: result});
     },
     clear: function(event){
         this.setState({arrayItems: this.props.searchItem, checked:false, str: ""})
     },
     render: function(){
 
-        var params = this.state.arrayItems.map( (el, idx) =>
+        let params = this.state.arrayItems.map( (el, idx) =>
             React.DOM.option({key: idx},el)
         );
 
