@@ -3,21 +3,27 @@ let Ishop = React.createClass({
 
     getInitialState: function(){
         return{
-            selectedItemId: "",
+            selectedItemId: 0,
             className: "checkedTd"
         }
     },
 
-    checked: function(event){
-        this.setState({selectedItemId: event.target.id});
-        if(event.target.id === this.state.selectedItemId){
-            event.target.className = this.state.className;
-        }
-
+    checkedTr: function(target){
+        this.setState({selectedItemId: target});
+        target.className = this.state.className;
         console.log(this.state);
     },
 
      render: function () {
+        let arrProduct = this.props.products.map( elem =>
+            React.createElement(Product, {key:elem.code,
+                dataId: elem.id,
+                name: elem.name,
+                prise: elem.prise,
+                url: elem.url,
+                in_stok: elem.in_stok,
+                clChecked: this.checkedTr})
+        );
         return React.DOM.table({className: "table"},
             React.DOM.thead(null,
                 React.DOM.tr(null,
@@ -27,6 +33,6 @@ let Ishop = React.createClass({
                     React.DOM.th({className: "th"}, `In stok`),
                     React.DOM.th({className: "th"}, `Control`))
                 ),
-            React.createElement(Product, {products: this.props.products, clChecked: this.checked}))
+            React.DOM.tbody(null,arrProduct));
      },
 });
