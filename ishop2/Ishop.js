@@ -4,25 +4,32 @@ let Ishop = React.createClass({
     getInitialState: function(){
         return{
             selectedItemId: 0,
-            className: "checkedTd"
+            className: "checkedTd",
+            products: [...products]
         }
     },
 
-    checkedTr: function(target){
-        this.setState({selectedItemId: target});
-        target.className = this.state.className;
-        console.log(this.state);
+    checkedTr: function(clickedItem){
+        this.setState({selectedItemId: clickedItem.className})
+    },
+    deleteTr: function(clickedItem){
+        const deleteProductsArr = this.state.products.filter(element => {
+            return element.id !== clickedItem.className
+        });
+        this.setState({products:deleteProductsArr})
     },
 
      render: function () {
-        let arrProduct = this.props.products.map( elem =>
+        let arrProduct = this.state.products.map( elem =>
             React.createElement(Product, {key:elem.code,
                 dataId: elem.id,
                 name: elem.name,
                 prise: elem.prise,
                 url: elem.url,
                 in_stok: elem.in_stok,
-                clChecked: this.checkedTr})
+                cbChecked: this.checkedTr,
+                activeLine: this.state.selectedItemId,
+                cbDeleteItem: this.deleteTr})
         );
         return React.DOM.table({className: "table"},
             React.DOM.thead(null,
