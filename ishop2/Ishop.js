@@ -10,11 +10,11 @@ let Ishop = React.createClass({
     },
 
     checkedTr: function(clickedItem){
-        this.setState({selectedItemId: clickedItem.className})
+        this.setState({selectedItemId: clickedItem})
     },
     deleteTr: function(clickedItem){
         const deleteProductsArr = this.state.products.filter(element => {
-            return element.id !== clickedItem.className
+            return element.id !== clickedItem;
         });
         this.setState({products:deleteProductsArr})
     },

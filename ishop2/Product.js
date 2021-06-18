@@ -1,19 +1,14 @@
 "use strict";
 let Product = React.createClass({
     displayName: "Product",
-    // getInitialState: function(){
-    //     return{
-    //         selectedItemId: "",
-    //         className: "checkedTd"
-    //     }
-    // },
 
-    checked: function(event){
-        this.props.cbChecked(event.currentTarget);
+    checked: function(){
+        this.props.cbChecked(this.props.dataId);
+
     },
     delete: function(event){
         event.stopPropagation();
-        this.props.cbDeleteItem(event.target.closest(`tr`));
+        this.props.cbDeleteItem(this.props.dataId);
     },
 
 
